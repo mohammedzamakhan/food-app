@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "todo-app": {
+    "food-app": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/todo-app",
+            "outputPath": "dist/food-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -63,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "todo-app:build"
+            "browserTarget": "food-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "todo-app:build:production"
+              "browserTarget": "food-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "todo-app:build"
+            "browserTarget": "food-app:build"
           }
         },
         "test": {
@@ -89,6 +90,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -111,15 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "todo-app:serve"
+            "devServerTarget": "food-app:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "todo-app:serve:production"
+              "devServerTarget": "food-app:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "todo-app"
+    }
+  },
+  "defaultProject": "food-app"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "todo-app",
+  "name": "food-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -12,15 +12,21 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.0",
+    "@angular/cdk": "~8.1.2",
     "@angular/common": "~8.2.0",
     "@angular/compiler": "~8.2.0",
     "@angular/core": "~8.2.0",
     "@angular/forms": "~8.2.0",
+    "@angular/material": "^8.1.2",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
+    "web-push": "^3.3.5",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -28,9 +34,9 @@
     "@angular/cli": "~8.2.0",
     "@angular/compiler-cli": "~8.2.0",
     "@angular/language-service": "~8.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "^5.0.0",
     "jasmine-core": "~3.4.0",
     "jasmine-spec-reporter": "~4.2.1",
