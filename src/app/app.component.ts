@@ -26,6 +26,10 @@ export class AppComponent {
     );
   }
 
+  onSubscribe() {
+    alert('Implement Push Notification Subscription!');
+  }
+
   addFood() {
     if (this.food) {
       this.http.post(URL, {

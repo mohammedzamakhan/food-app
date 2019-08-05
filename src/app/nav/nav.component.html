@@ -2,7 +2,11 @@
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <span><mat-icon aria-hidden="false" aria-label="Fast Food">fastfood</mat-icon>
-        Favorite Food Web App</span>
+        Favorite Food PWA</span>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-hidden="false" aria-label="Notification" (click)="subscribeToNotifications()">
+        <mat-icon>message</mat-icon>
+      </button>
     </mat-toolbar>
     <ng-content></ng-content>
   </mat-sidenav-content>

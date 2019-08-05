@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, share } from 'rxjs/operators';
@@ -9,6 +9,7 @@ import { map, share } from 'rxjs/operators';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
+  @Output() subscribe = new EventEmitter();
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -17,5 +18,9 @@ export class NavComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  subscribeToNotifications() {
+    this.subscribe.emit();
+  }
 
 }
