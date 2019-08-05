@@ -36,11 +36,15 @@ app.post("/subscribe", (req, res) => {
   res.status(201).json({});
 
   // Create payload
-  const payload = JSON.stringify({ title: "Thanks for Subscribing to my application!" });
-
+  const notificationPayload = {
+    "notification": {
+        "title": "Favorite Food",
+        "body": "Thanks for Subscribing!",
+    }
+  };
   // Pass object into sendNotification
   webpush
-    .sendNotification(subscription, payload)
+    .sendNotification(subscription, JSON.stringify(notificationPayload))
     .catch(err => console.error(err));
 });
 
@@ -56,9 +60,16 @@ app.get('/foods', (req, res) => {
 app.post('/foods', (req, res) => {
   const food = req.body.food;
   foods.push(food);
-  subscriptions.forEach(subscription => webpush.sendNotification(subscription, {
-    title: `New Food item added - ${food}`
-  }));
+  subscriptions.forEach(subscription => webpush.sendNotification(subscription, JSON.stringify({
+    "notification": {
+      "title": "Favorite Food",
+      "body": `New Food item added - ${food}`,
+      "actions": [{
+        "action": "explore",
+        "title": "Go to the site"
+      }]
+    }
+  })));
   res.send(foods);
 });
 
