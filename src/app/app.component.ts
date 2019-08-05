@@ -4,7 +4,11 @@ import { merge, Subject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError } from 'rxjs/operators';
 
-const URL = 'http://localhost:5000/foods';
+const HOST = 'http://192.168.1.68:5000';
+const FOODS_URL = `${HOST}/foods`;
+const SUBSCRIPTION_URL = `${HOST}/subscribe`;
+const VAPID_KEY = 'BJthRQ5myDgc7OSXzPCMftGw-n16F7zQBEN7EUD6XxcfTTvrLGWSIG7y_JxiWtVlCFua0S8MTB5rPziBqNx1qIo';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -18,7 +22,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     this.foods$ = merge(
-      this.http.get(URL).pipe(catchError((err) => {
+      this.http.get(FOODS_URL).pipe(catchError((err) => {
         this.snackBar.open(`Error in fetching data ${JSON.stringify(err)}`);
         return '';
       })),
@@ -32,7 +36,7 @@ export class AppComponent {
 
   addFood() {
     if (this.food) {
-      this.http.post(URL, {
+      this.http.post(FOODS_URL, {
         food: this.food
       }).subscribe(foods => {
         this.newFoodsFromPost$.next(foods);
